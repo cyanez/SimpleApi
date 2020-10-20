@@ -21,12 +21,13 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
- - task: DotNetCoreCLI@2
-   inputs:
+- task: VSTest@2
+  inputs:
     command: 'test'
     projects: '**/*Test/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-    displayName: 'Run Tests'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
 
 - task: VSBuild@1
   inputs:
@@ -35,7 +36,3 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
