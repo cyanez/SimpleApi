@@ -2,6 +2,7 @@ using System;
 using Xunit;
 
 using WebAppCore.Controllers;
+using WebAppCore.Models;
 using Microsoft.Extensions.Logging;
 
 namespace test {
@@ -17,8 +18,13 @@ namespace test {
     }
 
     [Fact]
-    public void Test1() {
+    public void TestSayHello() {
+      Employee employee = new Employee();
 
+      employee.Name = "Christian";
+      var returnValue = employee.SayHello();
+
+      Assert.Equal("hello Christian", returnValue);
     }
   }
 }
