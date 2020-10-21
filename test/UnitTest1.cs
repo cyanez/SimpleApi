@@ -24,7 +24,7 @@ namespace test {
       employee.Name = "Christian";
       var returnValue = employee.SayHello();
 
-      Assert.Equal("hello Christian", returnValue);
+      Assert.Equal("hello Christian1", returnValue);
     }
   }
 }
