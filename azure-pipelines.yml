@@ -21,9 +21,11 @@ steps:
         /p:DeployIisAppPath="Default Web Site"
       platform: $(buildPlatform)
       configuration: $(buildConfiguration)
+ 
   - task: DotNetCoreCLI@2
     inputs:
-      command: test
-      projects: '**/*Tests/*.csproj'
+      command: 'test'
+      projects: '**/*tests/*.csproj'
       arguments: '--configuration $(buildConfiguration)'
-      displayName: 'Run Tests'
+      testRunTitle: 'Tester'
+
